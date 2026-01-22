@@ -1,6 +1,6 @@
 //Activity 01
 //Display Student information
-
+console.log("=============================== Activity 01: Student Info ============================================");
 let roll_no = 124;
 let st_name = "Pranali";
 let email = "pranalisawant1403@gmail.com";
@@ -13,7 +13,7 @@ console.table([{"roll no":roll_no,"name":st_name,"email":email,"address":add,"re
 //Activity 02 
 //Odd- Even Checker
 //const prompt =("prompt-sync")()
-
+console.log("=============================== Activity 02: Odd - Even ============================================");
 let num = 4;
 
 if(num%2==0)
@@ -26,6 +26,7 @@ else
     document.write("Number is odd<br>");
 }
 
+console.log("=============================== Activity 03: Pass-Fail ============================================");
 //Activity03
 // pass or fail
 document.write("RESULT:")
@@ -39,7 +40,7 @@ else
 {
     document.write("You are FAIL!<br>");
 }
-
+console.log("=============================== Activity 04: for Loop ============================================");
 //Activity 4
 //Print Numbers 1f=-10
 document.write("Numbers from 1 to 10 :<br>")

@@ -1,6 +1,6 @@
 //Activity 01
 //Display Student information
-console.log("=============================== Activity 01: Student Info ============================================");
+document.write("=============================== Activity 01: Student Info ========================================<br>");
 let roll_no = 124;
 let st_name = "Pranali";
 let email = "pranalisawant1403@gmail.com";
@@ -8,12 +8,12 @@ let add;
 let result = true;
 let hobby = null;
 
-console.table([{"roll no":roll_no,"name":st_name,"email":email,"address":add,"result":result,"hobby":hobby}]);
+document.write(`<table border='1'><tr><th>Roll No</th><th>Name</th><th>Email</th><th>Address</th><th>Result</th><th>Hobby</th></tr><tr><td>${roll_no}</td><td>${st_name}</td><td>${email}</td><td>${add}</td><td>${result}</td><td>${hobby}</td></tr></table>`);
 
 //Activity 02 
 //Odd- Even Checker
 //const prompt =("prompt-sync")()
-console.log("=============================== Activity 02: Odd - Even ============================================");
+document.write("\n=============================== Activity 02: Odd - Even ==========================================<br>");
 let num = 4;
 
 if(num%2==0)
@@ -26,7 +26,7 @@ else
     document.write("Number is odd<br>");
 }
 
-console.log("=============================== Activity 03: Pass-Fail ============================================");
+document.write("=============================== Activity 03: Pass-Fail ============================================<br>");
 //Activity03
 // pass or fail
 document.write("RESULT:")
@@ -40,7 +40,7 @@ else
 {
     document.write("You are FAIL!<br>");
 }
-console.log("=============================== Activity 04: for Loop ============================================");
+document.write("=============================== Activity 04: for Loop ============================================<br>");
 //Activity 4
 //Print Numbers 1f=-10
 document.write("Numbers from 1 to 10 :<br>")

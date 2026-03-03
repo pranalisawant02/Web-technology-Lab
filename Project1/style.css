@@ -1,0 +1,36 @@
+body {
+    text-align: center;
+    font-family: Arial;
+    background-color: #f4f4f4;
+    transition: 0.5s;
+}
+
+.countdown {
+    font-size: 30px;
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.dark {
+    background-color: #111;
+    color: white;
+}
+
+/* Confetti effect */
+@keyframes fall {
+    0% { transform: translateY(-100px); }
+    100% { transform: translateY(600px); }
+}
+
+.confetti {
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    background: red;
+    animation: fall 3s linear infinite;
+}

@@ -1,0 +1,89 @@
+/* ===== RESET ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== CSS VARIABLES ===== */
+:root{
+     --primary-color: #8B0000;     /* Deep Red */
+    --secondary-color: #FFD700;   /* Golden */
+    --bg-light: #FFF8E7;          /* Light Cream */
+    --text-dark: #222;
+    --white: #ffffff;
+}
+
+/* ===== BODY ===== */
+body{
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 40px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-color);
+}
+
+#lang-toggle {
+    padding: 5px 10px;
+    border: none;
+    background-color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.shop-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--white);
+    cursor: pointer;
+}
+
+.shop-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}

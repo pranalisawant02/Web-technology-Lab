@@ -74,7 +74,7 @@ body{
     margin-bottom: 30px;
 }
 
-.shop-btn {
+.wp-btn {
     padding: 10px 20px;
     font-size: 1rem;
     border: none;
@@ -83,7 +83,53 @@ body{
     cursor: pointer;
 }
 
-.shop-btn:hover {
+.wp-btn:hover {
     background-color: var(--secondary-color);
     color: var(--text-dark);
+}
+
+/* PRODUCT SECTION */
+
+.products {
+    padding: 50px;
+    text-align: center;
+}
+
+.products h2 {
+    margin-bottom: 30px;
+    color: #8B0000;
+}
+
+/* Product container layout */
+
+#product-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Product card */
+
+#product-container div {
+    background: white;
+    padding: 20px;
+    width: 200px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 8px rgba(0,0,0,0.15);
+}
+
+/* Product button */
+
+#product-container button {
+    background: #8B0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+#product-container button:hover {
+    background: #a50000;
 }

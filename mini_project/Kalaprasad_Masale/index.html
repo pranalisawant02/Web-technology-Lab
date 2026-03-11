@@ -1,66 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character Encoding -->
-    <meta charset="UTF-8">
 
-    <!-- Responsive Meta Tag -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- SEO Basic Meta -->
-    <meta name="description" content="KALAPRASAD Ghati Masala - Traditional Handmade Maharashtrian Spices with Rich Authentic Taste.">
+<meta name="description" content="KALAPRASAD Ghati Masala - Traditional Handmade Maharashtrian Spices">
 
-    <title>KALAPRASAD Ghati Masala</title>
+<title>KALAPRASAD Ghati Masala</title>
 
-    <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
-    
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <!-- ===== NAVBAR ===== -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">
-                🌶️ कालाप्रसाद घाटी मसाला
-            </div>
+<header>
+<nav class="navbar">
 
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-            </ul>
+<div class="logo">
+🌶️ कलाप्रसाद घाटी मसाला
+</div>
 
-            <button id="lang-toggle">EN</button>
-            
-        </nav>
-    </header>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+</ul>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="hero">
-        <div class="hero-title">
-            <h1 id="hero-title">Traditional Handmade Recipe – Rich Authentic Taste</h1>
-            <p id="hero-desc">
-                Started by four housewives, our spices are homemade using traditional
-                methods with no preservatives.
-            </p>
-            <button class="wp-btn">Shop Now</button>
-            <button class="wp-btn">Order on WhatsApp</button>
+<button id="lang-toggle">EN</button>
 
-        </div>
+</nav>
+</header>
 
-    </section>
+<section class="hero">
 
-    <section class="products">
+<h1 id="hero-title">
+Traditional Handmade Recipe – Rich Authentic Taste
+</h1>
 
-    <h2>Our Products</h2>
-
-    <div id="product-container"></div>
+<p id="hero-desc">
+Started by four housewives, our spices are homemade using traditional methods with no preservatives.
+</p>
 
 </section>
 
-    <!-- JS -->
-    <script type="module" src="main.js"></script>
+<section class="products">
+
+<h2>Our Products</h2>
+
+<div id="product-container"></div>
+
+</section>
+
+<!-- IMAGE ZOOM MODAL -->
+
+<div id="image-modal">
+<img id="modal-img">
+</div>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+
+<a href="https://wa.me/917066395554" target="_blank" id="whatsapp-float">
+💬
+</a>
+
+<!-- ORDER BUTTON -->
+
+<a href="cart.html">
+<button id="order-btn">Order on WhatsApp</button>
+</a>
+
+<!-- CHECKOUT POPUP -->
+
+<div id="checkout-popup">
+
+<div class="popup-box">
+
+<h2>Order Confirmed</h2>
+
+<p>Your masala order will be placed on WhatsApp.</p>
+
+<button id="close-popup">OK</button>
+
+</div>
+
+</div>
+
+<script src="main.js"></script>
+
 </body>
 </html>

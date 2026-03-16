@@ -41,4 +41,26 @@ A bilingual (English & Marathi) e-commerce website for traditional handmade Maha
 
 ---
 
-## 📁 Project Structure
+
+---
+
+## 🧠 JavaScript Concepts Covered
+
+| Concept | Implementation |
+|---------|----------------|
+| DOM Manipulation | Creating product cards dynamically |
+| Event Listeners | Add to cart, quantity controls, language toggle |
+| Array Methods | `forEach`, `find`, `map` for cart operations |
+| LocalStorage | Persist cart data across pages |
+| Template Literals | Dynamic HTML generation |
+| Modules | Code separation (main.js, cart.js) |
+| JSON | Parse/stringify cart data |
+| Conditional Rendering | Language-based content switching |
+
+---
+
+## 🚀 How to Run Locally
+
+1. **Clone the repository**
+   ```bash[
+   git clone https://github.com/yourusername/kalaprasad-ghati-masala.git](https://github.com/pranalisawant02/Web-technology-Lab/tree/main/mini_project)

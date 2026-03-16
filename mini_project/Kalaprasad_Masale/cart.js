@@ -1,88 +1,88 @@
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener("DOMContentLoaded", function () {
 
-const container=document.getElementById("cart-container");
-const totalPrice=document.getElementById("total-price");
-const orderBtn=document.getElementById("order-whatsapp");
+  const container = document.getElementById("cart-container");
+  const totalPrice = document.getElementById("total-price");
+  const orderBtn  = document.getElementById("order-whatsapp");
 
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = 0;
 
-let total=0;
+  if (cart.length === 0) {
+    container.innerHTML = "<p style='text-align:center; padding:40px; color:#888;'>Your cart is empty. <a href='index.html'>Shop Now</a></p>";
+    totalPrice.textContent = "";
+    return;
+  }
 
-cart.forEach(function(product,index){
+  cart.forEach(function (product, index) {
 
-const item=document.createElement("div");
+    const item = document.createElement("div");
 
-item.innerHTML=`
-<h3>${product.name_en}</h3>
-<p>Price: ₹${product.price}</p>
+    item.innerHTML = `
+      <h3>${product.name_en}</h3>
+      <p style="color:#555; font-size:14px;">${product.weight}</p>
+      <p>Price: ₹${product.price}</p>
 
-<button class="minus">-</button>
-<span>${product.quantity}</span>
-<button class="plus">+</button>
+      <div style="margin:10px 0;">
+        <button class="minus">−</button>
+        <span style="margin:0 12px; font-weight:bold; font-size:16px;">${product.quantity}</span>
+        <button class="plus">+</button>
+      </div>
 
-<button class="remove-btn">Remove</button>
-`;
+      <p style="font-weight:bold; color:#8B0000;">Subtotal: ₹${product.price * product.quantity}</p>
 
-container.appendChild(item);
+      <button class="remove-btn">Remove</button>
+    `;
 
-const plusBtn=item.querySelector(".plus");
-const minusBtn=item.querySelector(".minus");
-const removeBtn=item.querySelector(".remove-btn");
+    container.appendChild(item);
 
-plusBtn.addEventListener("click",function(){
+    const plusBtn   = item.querySelector(".plus");
+    const minusBtn  = item.querySelector(".minus");
+    const removeBtn = item.querySelector(".remove-btn");
 
-product.quantity++;
+    plusBtn.addEventListener("click", function () {
+      product.quantity++;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    });
 
-localStorage.setItem("cart",JSON.stringify(cart));
+    minusBtn.addEventListener("click", function () {
+      if (product.quantity > 1) {
+        product.quantity--;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        location.reload();
+      }
+    });
 
-location.reload();
+    removeBtn.addEventListener("click", function () {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    });
 
-});
+    total += product.price * product.quantity;
 
-minusBtn.addEventListener("click",function(){
+  });
 
-if(product.quantity>1){
-product.quantity--;
-}
+  totalPrice.textContent = "Total: ₹" + total;
 
-localStorage.setItem("cart",JSON.stringify(cart));
+  /* ===== WHATSAPP ORDER ===== */
+  orderBtn.addEventListener("click", function () {
 
-location.reload();
+    let message = "🛒 *कलाप्रसाद मसाला ऑर्डर*\n\nनमस्कार! मला खालील मसाले हवे आहेत:\n\n";
 
-});
+    cart.forEach(function (product) {
+      const marName = product.name_mr || product.name_en;
+      message += `🌶️ ${marName} (${product.weight})\n`;
+      message += `   प्रमाण: ${product.quantity} | ₹${product.price * product.quantity}\n\n`;
+    });
 
-removeBtn.addEventListener("click",function(){
+    message += `*एकूण रक्कम: ₹${total}*\n\nकृपया ऑर्डर कन्फर्म करा. धन्यवाद! 🙏`;
 
-cart.splice(index,1);
+    const phone = "917066395554";
+    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
 
-localStorage.setItem("cart",JSON.stringify(cart));
+    window.open(url, "_blank");
 
-location.reload();
-
-});
-
-total+=product.price*product.quantity;
-
-});
-
-totalPrice.textContent="Total: ₹"+total;
-
-orderBtn.addEventListener("click",function(){
-
-let message="Hello, I want to order:\n\n";
-
-cart.forEach(function(product){
-message+=`${product.name_en} x${product.quantity} - ₹${product.price}\n`;
-});
-
-message+=`\nTotal: ₹${total}`;
-
-const phone="917066395554";
-
-const url="https://wa.me/"+phone+"?text="+encodeURIComponent(message);
-
-window.open(url,"_blank");
-
-});
+  });
 
 });

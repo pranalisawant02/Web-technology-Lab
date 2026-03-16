@@ -1,140 +1,44 @@
-KALAPRASAD Ghati Masala Website
-Project Overview
+# 🌶️ KALAPRASAD Ghati Masala
 
-This project is a simple e-commerce style website built for the home-made spice brand KALAPRASAD Ghati Masala.
-The website allows users to view available masalas, add them to a cart, and place orders directly through WhatsApp.
+A bilingual (English & Marathi) e-commerce website for traditional handmade Maharashtrian spices, built with pure HTML, CSS, and JavaScript. The website supports WhatsApp-based ordering, making it perfect for rural small businesses.
 
-The goal of this project is to build a lightweight product ordering system using pure HTML, CSS, and JavaScript without any frameworks.
+## 🚀 Live Demo
 
-Features Implemented
-1. Product Display
+[Coming Soon – Deploy on Netlify/Vercel]
 
-Products are dynamically generated using JavaScript.
+---
 
-Each product card shows:
+## 📋 Features
 
-Product Name
+### 🛒 Customer Features
+- **Product Catalog** – Dynamic product listing with images, prices, and weights
+- **Add to Cart** – Click to add products with quantity tracking
+- **Cart Management** – Increase/decrease quantity, remove items, auto total calculation
+- **WhatsApp Ordering** – One-click order with auto-generated message containing all cart items
+- **Bilingual Support** – Full English ↔ Marathi language toggle
+- **Image Zoom** – Click product images to enlarge
+- **Toast Notifications** – Smooth alerts instead of popups
+- **Mobile Responsive** – Works perfectly on all devices
 
-Weight
+### 💼 Business Features
+- **Trust Elements** – "Handmade by Women" badges, customer reviews
+- **Brand Story** – Emotional about section highlighting women SHG
+- **Why Choose Us** – Key selling points with icons
+- **Bestseller Section** – Featured product highlight
+- **Footer** – Contact info, location, social proof
 
-Price
+---
 
-Add to Cart button
+## 🛠️ Tech Stack
 
-2. Language Toggle
+| Technology | Purpose |
+|------------|---------|
+| **HTML5** | Structure & content |
+| **CSS3** | Styling, animations, responsive design |
+| **JavaScript (ES6)** | Dynamic rendering, cart logic, localStorage |
+| **LocalStorage API** | Persistent cart storage |
+| **WhatsApp API** | `wa.me` for direct ordering |
 
-Users can switch between:
+---
 
-English
-
-Marathi
-
-The hero section and product names update dynamically based on the selected language.
-
-3. Add to Cart System
-
-When the Add to Cart button is clicked:
-
-The product is stored in a cart array.
-
-The cart is saved using localStorage.
-
-This ensures that cart items remain even after refreshing the page.
-
-Example cart structure:
-
-[
-  {
-    name_en: "Ghati Masala",
-    name_mr: "घाटी मसाला",
-    price: 120,
-    weight: "500g"
-  }
-]
-4. Cart Page
-
-The cart.html page displays:
-
-Selected products
-
-Individual product prices
-
-Total cart price
-
-The cart page reads product data from localStorage.
-
-5. WhatsApp Order Integration
-
-Users can place orders directly via WhatsApp.
-
-When the Order on WhatsApp button is clicked:
-
-The cart items are converted into a message.
-
-A WhatsApp link is generated.
-
-WhatsApp opens with the pre-filled order message.
-
-Example message:
-
-Hello, I want to order:
-
-Ghati Masala - ₹120
-Kala Masala - ₹150
-
-Total: ₹270
-Technologies Used
-
-HTML5
-
-CSS3
-
-JavaScript (Vanilla JS)
-
-LocalStorage API
-
-WhatsApp API (wa.me)
-
-Project Structure
-project-folder
-│
-├── index.html
-├── cart.html
-│
-├── style.css
-│
-├── main.js
-├── cart.js
-│
-└── README.md
-How to Run the Project
-
-Download or clone the project.
-
-Open the project folder.
-
-Run index.html in your browser.
-
-No server or installation is required.
-
-Future Improvements
-
-Planned improvements include:
-
-Remove item from cart
-
-Product quantity control
-
-Cart item counter in navbar
-
-Product images
-
-Marathi order message support
-
-Improved UI styling
-
-Mobile responsive design
-
-Author
-
-Developed as part of a learning project to build a functional product ordering website using JavaScript fundamentals.
+## 📁 Project Structure

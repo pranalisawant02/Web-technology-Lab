@@ -1,261 +1,241 @@
-document.addEventListener("DOMContentLoaded", function () {
+﻿document.addEventListener("DOMContentLoaded", function () {
+  const langToggle = document.getElementById("lang-toggle");
+  const container = document.getElementById("product-container");
+  const cartCount = document.getElementById("cart-count");
+  const modal = document.getElementById("image-modal");
+  const modalImg = document.getElementById("modal-img");
+  const liveMessage = document.getElementById("cart-feedback");
 
-const langToggle = document.getElementById("lang-toggle");
-const heroTitle  = document.getElementById("hero-title");
-const heroDesc   = document.getElementById("hero-desc");
-const container  = document.getElementById("product-container");
-const cartCount  = document.getElementById("cart-count");
-const modal      = document.getElementById("image-modal");
-const modalImg   = document.getElementById("modal-img");
-const orderBtn   = document.getElementById("order-btn");
-const popup      = document.getElementById("checkout-popup");
-const closePopup = document.getElementById("close-popup");
+  let currentLanguage = window.CartUtils.getLanguage();
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-let currentLanguage = "en";
-
-/* ================= PRODUCTS ================= */
-
-const products = [
-  {
-    name_en: "Ghati Masala",
-    name_mr: "घाटी मसाला",
-    price: 767,
-    weight: "500g",
-    image: "images/ghati_masala.png"
-  },
-  {
-    name_en: "Malvani Masala",
-    name_mr: "मालवणी मसाला",
-    price: 150,
-    weight: "500g",
-    image: "images/malvani_masala.png"
-  },
-  {
-    name_en: "Garam Masala",
-    name_mr: "गरम मसाला",
-    price: 180,
-    weight: "500g",
-    image: "images/garam_masala.png"
+  function showFeedback(message) {
+    if (!liveMessage) return;
+    liveMessage.textContent = message;
+    liveMessage.hidden = false;
+    window.clearTimeout(showFeedback.timeoutId);
+    showFeedback.timeoutId = window.setTimeout(function () {
+      liveMessage.hidden = true;
+      liveMessage.textContent = "";
+    }, 2200);
   }
-];
 
-updateCartCount();
+  function updateCartCount() {
+    const cart = window.CartUtils.getStoredCart();
+    if (cartCount) {
+      cartCount.textContent = window.CartUtils.getCartCount(cart);
+    }
+    const copy = window.CartUtils.getCopy(currentLanguage);
+    const navCart = document.getElementById("nav-cart");
+    if (navCart) {
+      navCart.innerHTML = copy.navCart + ' (<span id="cart-count">' + cartCount.textContent + '</span>)';
+    }
+  }
 
-/* ================= RENDER PRODUCTS ================= */
+  function updateStaticCopy() {
+    const copy = window.CartUtils.getCopy(currentLanguage);
+    
+    // Navbar
+    const navHome = document.getElementById("nav-home");
+    const navCart = document.getElementById("nav-cart");
+    if (navHome) navHome.textContent = copy.navHome;
+    if (navCart) navCart.innerHTML = copy.navCart + ' (<span id="cart-count">' + cartCount.textContent + '</span>)';
+    
+    // Hero
+    const heroTitle = document.getElementById("hero-title");
+    const heroDesc = document.getElementById("hero-desc");
+    const shopNowBtn = document.getElementById("shop-now-btn");
+    const orderWpBtn = document.getElementById("order-wp-btn");
+    if (heroTitle) heroTitle.textContent = copy.heroTitle;
+    if (heroDesc) heroDesc.textContent = copy.heroDesc;
+    if (shopNowBtn) shopNowBtn.textContent = copy.shopNow;
+    if (orderWpBtn) orderWpBtn.textContent = copy.orderWhatsApp;
+    
+    // Trust Strip
+    const trust1 = document.getElementById("trust-1");
+    const trust2 = document.getElementById("trust-2");
+    const trust3 = document.getElementById("trust-3");
+    const trust4 = document.getElementById("trust-4");
+    if (trust1) trust1.textContent = copy.trust1;
+    if (trust2) trust2.textContent = copy.trust2;
+    if (trust3) trust3.textContent = copy.trust3;
+    if (trust4) trust4.textContent = copy.trust4;
+    
+    // Bestseller
+    const bestsellerTitle = document.getElementById("bestseller-title");
+    const bestsellerName = document.getElementById("bestseller-name");
+    const bestsellerDesc = document.getElementById("bestseller-desc");
+    const bestsellerBtn = document.getElementById("bestseller-btn");
+    if (bestsellerTitle) bestsellerTitle.textContent = copy.bestsellerTitle;
+    if (bestsellerName) bestsellerName.textContent = copy.bestsellerName;
+    if (bestsellerDesc) bestsellerDesc.textContent = copy.bestsellerDesc;
+    if (bestsellerBtn) bestsellerBtn.textContent = copy.buyNow;
+    
+    // Products Title
+    const productsTitle = document.getElementById("products-title");
+    if (productsTitle) productsTitle.textContent = copy.productsTitle;
+    
+    // Why Choose
+    const whyTitle = document.getElementById("why-title");
+    const why1Title = document.getElementById("why1-title");
+    const why1Desc = document.getElementById("why1-desc");
+    const why2Title = document.getElementById("why2-title");
+    const why2Desc = document.getElementById("why2-desc");
+    const why3Title = document.getElementById("why3-title");
+    const why3Desc = document.getElementById("why3-desc");
+    const why4Title = document.getElementById("why4-title");
+    const why4Desc = document.getElementById("why4-desc");
+    
+    if (whyTitle) whyTitle.textContent = copy.whyTitle;
+    if (why1Title) why1Title.textContent = copy.why1Title;
+    if (why1Desc) why1Desc.textContent = copy.why1Desc;
+    if (why2Title) why2Title.textContent = copy.why2Title;
+    if (why2Desc) why2Desc.textContent = copy.why2Desc;
+    if (why3Title) why3Title.textContent = copy.why3Title;
+    if (why3Desc) why3Desc.textContent = copy.why3Desc;
+    if (why4Title) why4Title.textContent = copy.why4Title;
+    if (why4Desc) why4Desc.textContent = copy.why4Desc;
+    
+    // About
+    const aboutTitle = document.getElementById("about-title");
+    const aboutP1 = document.getElementById("about-p1");
+    const aboutP2 = document.getElementById("about-p2");
+    const aboutP3 = document.getElementById("about-p3");
+    if (aboutTitle) aboutTitle.textContent = copy.aboutTitle;
+    if (aboutP1) aboutP1.textContent = copy.aboutP1;
+    if (aboutP2) aboutP2.textContent = copy.aboutP2;
+    if (aboutP3) aboutP3.textContent = copy.aboutP3;
+    
+    // Footer
+    const footerBrand = document.getElementById("footer-brand");
+    const footerHandmade = document.getElementById("footer-handmade");
+    const footerLocation = document.getElementById("footer-location");
+    const footerTagline = document.getElementById("footer-tagline");
+    const footerCopyright = document.getElementById("footer-copyright");
+    const cartCtaLabel = document.getElementById("cart-cta-label");
+    
+    if (footerBrand) footerBrand.textContent = copy.footerBrand;
+    if (footerHandmade) footerHandmade.textContent = copy.footerHandmade;
+    if (footerLocation) footerLocation.textContent = copy.footerLocation;
+    if (footerTagline) footerTagline.textContent = copy.footerTagline;
+    if (footerCopyright) footerCopyright.textContent = copy.footerCopyright;
+    if (cartCtaLabel) cartCtaLabel.textContent = copy.orderWhatsApp;
+    
+    document.documentElement.lang = currentLanguage === "mr" ? "mr" : "en";
+    if (langToggle) {
+      langToggle.textContent = copy.languageButton;
+    }
+  }
 
-function renderProducts() {
+  function renderProducts() {
+    if (!container) return;
 
-  container.innerHTML = "";
+    const copy = window.CartUtils.getCopy(currentLanguage);
 
-  products.forEach(function (product) {
+    container.innerHTML = window.PRODUCTS.map(function (product) {
+      const productName = window.CartUtils.escapeHtml(product.name[currentLanguage]);
+      const productDescription = window.CartUtils.escapeHtml(product.description[currentLanguage]);
+      const ratingData = window.CartUtils.getProductRating(product.id);
+      
+      // Generate star HTML - WHOLE STARS ONLY (rounded)
+      const roundedStars = ratingData.rounded !== undefined ? ratingData.rounded : Math.round(ratingData.average);
+      let starsHtml = '';
+      for (let i = 1; i <= 5; i++) {
+        if (i <= roundedStars) {
+          starsHtml += '<span class="star filled">★</span>';
+        } else {
+          starsHtml += '<span class="star">☆</span>';
+        }
+      }
+      
+      const ratingText = ratingData.count > 0 
+        ? roundedStars + ' (' + ratingData.count + ')'
+        : 'No ratings yet';
+      
+      return [
+        '<article class="product-card" data-product-id="' + product.id + '">',
+        '  <button class="product-image-button" type="button" data-image="' + product.image + '" data-name="' + productName + '">',
+        '    <img src="' + product.image + '" alt="' + productName + '">',
+        '  </button>',
+        '  <div class="product-copy">',
+        '    <h3>' + productName + '</h3>',
+        '    <p class="product-description">' + productDescription + '</p>',
+        '    <p class="weight">' + window.CartUtils.escapeHtml(product.weight) + '</p>',
+        '    <p class="price">' + window.CartUtils.formatCurrency(product.price) + '</p>',
+        '    <div class="rating-section">',
+        '      <div class="stars" data-product-id="' + product.id + '">' + starsHtml + '</div>',
+        '      <span class="rating-count">' + ratingText + '</span>',
+        '    </div>',
+        '    <button class="buy-btn" type="button" data-product-id="' + product.id + '">' + copy.addToCart + '</button>',
+        '  </div>',
+        '</article>'
+      ].join("\n");
+    }).join("");
+    
+    // Attach rating click handlers
+    document.querySelectorAll('.stars').forEach(function(starsContainer) {
+      const productId = starsContainer.dataset.productId;
+      const stars = starsContainer.querySelectorAll('.star');
+      
+      stars.forEach(function(star, index) {
+        star.style.cursor = 'pointer';
+        star.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const ratingValue = index + 1;
+          window.CartUtils.addRating(productId, ratingValue);
+          const copy = window.CartUtils.getCopy(currentLanguage);
+          showFeedback('Thank you! Rated ' + ratingValue + ' stars');
+          renderProducts();
+        });
+      });
+    });
+  }
 
-    const card = document.createElement("div");
-    card.classList.add("product-card");
+  if (container) {
+    container.addEventListener("click", function (event) {
+      const addButton = event.target.closest(".buy-btn");
+      if (addButton) {
+        const product = window.CartUtils.findProduct(addButton.dataset.productId);
+        if (!product) return;
 
-    const name = currentLanguage === "en" ? product.name_en : product.name_mr;
+        window.CartUtils.addToCart(product.id);
+        updateCartCount();
 
-    const btnLabel = currentLanguage === "en" ? "Add to Cart" : "कार्टमध्ये टाका";
-
-    card.innerHTML = `
-      <img src="${product.image}" alt="${name}">
-      <h3>${name}</h3>
-      <p class="weight">${product.weight}</p>
-      <p class="price">₹${product.price}</p>
-      <button class="buy-btn">${btnLabel}</button>
-    `;
-
-    const button = card.querySelector(".buy-btn");
-    const img    = card.querySelector("img");
-
-    /* ADD TO CART */
-    button.addEventListener("click", function () {
-
-      let existing = cart.find(item => item.name_en === product.name_en);
-
-      if (existing) {
-        existing.quantity += 1;
-      } else {
-        cart.push({ ...product, quantity: 1 });
+        const copy = window.CartUtils.getCopy(currentLanguage);
+        showFeedback(
+          window.CartUtils.interpolate(copy.addedToCart, {
+            name: product.name[currentLanguage]
+          })
+        );
+        return;
       }
 
-      localStorage.setItem("cart", JSON.stringify(cart));
-      updateCartCount();
-
-      const msg = currentLanguage === "en"
-        ? name + " added to cart!"
-        : name + " कार्टमध्ये टाकला!";
-      alert(msg);
-
+      const imageButton = event.target.closest(".product-image-button");
+      if (imageButton && modal && modalImg) {
+        modalImg.src = imageButton.dataset.image;
+        modalImg.alt = imageButton.dataset.name;
+        modal.hidden = false;
+      }
     });
-
-    /* IMAGE ZOOM */
-    img.addEventListener("click", function () {
-      modal.style.display = "flex";
-      modalImg.src = product.image;
-    });
-
-    container.appendChild(card);
-
-  });
-
-}
-
-/* ================= MODAL CLOSE ================= */
-
-modal.addEventListener("click", function () {
-  modal.style.display = "none";
-});
-
-/* ================= CART COUNT ================= */
-
-function updateCartCount() {
-  let count = 0;
-  cart.forEach(function (item) {
-    count += item.quantity;
-  });
-  cartCount.textContent = count;
-}
-
-renderProducts();
-
-/* ================= POPUP (close on OK) ================= */
-
-if (closePopup) {
-  closePopup.addEventListener("click", function () {
-    popup.style.display = "none";
-  });
-}
-
-/* Close popup when clicking outside the box */
-if (popup) {
-  popup.addEventListener("click", function (e) {
-    if (e.target === popup) {
-      popup.style.display = "none";
-    }
-  });
-}
-
-/* ================= LANGUAGE TOGGLE ================= */
-
-langToggle.addEventListener("click", function () {
-
-  /* ABOUT ELEMENTS */
-  const aboutTitle = document.getElementById("about-title");
-  const aboutP1    = document.getElementById("about-p1");
-  const aboutP2    = document.getElementById("about-p2");
-  const aboutP3    = document.getElementById("about-p3");
-
-  /* WHY CHOOSE ELEMENTS */
-  const whyTitle = document.getElementById("why-title");
-  const w1t = document.getElementById("why1-title");
-  const w1d = document.getElementById("why1-desc");
-  const w2t = document.getElementById("why2-title");
-  const w2d = document.getElementById("why2-desc");
-  const w3t = document.getElementById("why3-title");
-  const w3d = document.getElementById("why3-desc");
-  const w4t = document.getElementById("why4-title");
-  const w4d = document.getElementById("why4-desc");
-
-  /* ===== EN → MR ===== */
-  if (currentLanguage === "en") {
-
-    heroTitle.textContent = "पारंपरिक हाताने बनवलेला मसाला – अस्सल चव";
-    heroDesc.textContent  = "चार गृहिणींनी सुरू केलेला घरगुती मसाला.";
-
-    if (aboutTitle) {
-      aboutTitle.textContent = "🌸 आमची कथा";
-      aboutP1.textContent = "कलाप्रसाद घाटी मसाला सांगली जिल्ह्यातील कलाप्रसाद महिला बचत गटातील महिलांकडून प्रेमाने तयार केला जातो. प्रत्येक पॅकमध्ये घरची उब, पारंपरिक ज्ञान आणि कुटुंबाला आधार देण्याची ग्रामीण महिलांची जिद्द आहे.";
-      aboutP2.textContent = "उत्तम दर्जाचे मसाले निवडण्यापासून ते दळणे आणि पॅकिंगपर्यंत प्रत्येक प्रक्रिया स्वच्छता, काळजी आणि अभिमानाने हाताने केली जाते. हा कारखान्यात तयार केलेला मसाला नाही — तर पिढ्यानपिढ्या चालत आलेली घरगुती चव आहे.";
-      aboutP3.textContent = "हा मसाला निवडताना तुम्ही फक्त उत्पादन खरेदी करत नाही, तर महिलांच्या उपजीविकेला पाठिंबा देता, महाराष्ट्राच्या खाद्यपरंपरेचे जतन करता आणि आपल्या स्वयंपाकघरात अस्सल चव आणता.";
-    }
-
-    if (whyTitle) {
-      whyTitle.textContent = "🌶️ कलाप्रसाद मसाले का निवडावे?";
-      w1t.textContent = "महिलांकडून हाताने तयार";
-      w1d.textContent = "ग्रामीण महिलांच्या बचत गटाद्वारे प्रेमाने तयार केलेले.";
-      w2t.textContent = "प्रिझर्वेटिव्ह नाही";
-      w2d.textContent = "100% नैसर्गिक आणि रसायनमुक्त.";
-      w3t.textContent = "पारंपरिक चव";
-      w3d.textContent = "पिढ्यानपिढ्या चालत आलेली रेसिपी.";
-      w4t.textContent = "घरगुती गुणवत्ता";
-      w4d.textContent = "स्वच्छ व सुरक्षित पद्धतीने तयार.";
-    }
-
-    langToggle.textContent = "EN";
-    currentLanguage = "mr";
-
-  /* ===== MR → EN ===== */
-  } else {
-
-    heroTitle.textContent = "Traditional Handmade Recipe – Rich Authentic Taste";
-    heroDesc.textContent  = "Started by four housewives, our spices are homemade using traditional methods with no preservatives.";
-
-    if (aboutTitle) {
-      aboutTitle.textContent = "🌸 Our Story";
-      aboutP1.textContent = "Kalaprasad Ghati Masala is lovingly prepared by the women of Kalaprasad Mahila Self-Help Group in Sangli district. Each pack carries the warmth of home, traditional knowledge, and the determination of rural women working together to support their families.";
-      aboutP2.textContent = "From selecting quality ingredients to careful grinding and packing, every step is done by hand with attention, cleanliness and pride. This is not factory-made spice — it is homemade taste passed down through generations.";
-      aboutP3.textContent = "When you choose our masala, you are not just buying a product. You are supporting women's livelihoods, preserving Maharashtrian food traditions, and bringing authentic regional flavour into your kitchen.";
-    }
-
-    if (whyTitle) {
-      whyTitle.textContent = "🌶️ Why Choose Kalaprasad Masale?";
-      w1t.textContent = "Handmade by Women";
-      w1d.textContent = "Prepared by rural women self-help group with care and dedication.";
-      w2t.textContent = "No Preservatives";
-      w2d.textContent = "100% natural spices with no chemicals or artificial colors.";
-      w3t.textContent = "Traditional Taste";
-      w3d.textContent = "Authentic Maharashtrian recipes passed down generations.";
-      w4t.textContent = "Homemade Quality";
-      w4d.textContent = "Clean, hygienic preparation just like your own kitchen.";
-    }
-
-    langToggle.textContent = "मराठी";
-    currentLanguage = "en";
-
   }
 
-  renderProducts();
-
-});
-
-/* ================= WHATSAPP ORDER (from order-btn) ================= */
-
-if (orderBtn) {
-  orderBtn.addEventListener("click", function (e) {
-
-    e.preventDefault();
-
-    if (cart.length === 0) {
-      alert(currentLanguage === "en"
-        ? "Cart is empty! Please add products first."
-        : "कार्ट रिकामी आहे! आधी उत्पादने टाका.");
-      return;
-    }
-
-    let total = 0;
-
-    /* Always send Marathi message since most users are Marathi */
-    let message = "🛒 *कलाप्रसाद मसाला ऑर्डर*\n\nनमस्कार! मला खालील मसाले हवे आहेत:\n\n";
-
-    cart.forEach(function (item) {
-      let price = item.price * item.quantity;
-      message += "🌶️ " + item.name_mr +
-        " (" + item.weight + ")\n" +
-        "   प्रमाण: " + item.quantity +
-        " | ₹" + price + "\n\n";
-      total += price;
+  if (modal) {
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        modal.hidden = true;
+      }
     });
+  }
 
-    message += "*एकूण रक्कम: ₹" + total + "*\n\nकृपया ऑर्डर कन्फर्म करा. धन्यवाद! 🙏";
+  if (langToggle) {
+    langToggle.addEventListener("click", function () {
+      currentLanguage = currentLanguage === "en" ? "mr" : "en";
+      window.CartUtils.setLanguage(currentLanguage);
+      updateStaticCopy();
+      renderProducts();
+    });
+  }
 
-    const phone = "917066395554";
-    const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-
-    if (popup) popup.style.display = "flex";
-    window.open(url, "_blank");
-
-  });
-}
-
+  updateStaticCopy();
+  updateCartCount();
+  renderProducts();
 });

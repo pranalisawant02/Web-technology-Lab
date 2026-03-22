@@ -1,222 +1,99 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
- 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="KALAPRASAD Ghati Masala - Traditional Handmade Maharashtrian Spices">
 <title>KALAPRASAD Ghati Masala</title>
 <link rel="stylesheet" href="style.css">
- 
 </head>
- 
 <body>
- 
-<!-- NAVBAR -->
 <header>
 <nav class="navbar">
- 
-<div class="logo">
-🌶️ कलाप्रसाद घाटी मसाला
-</div>
- 
+<div class="logo">कलाप्रसाद घाटी मसाला</div>
 <ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="cart.html">Cart (<span id="cart-count">0</span>)</a></li>
+<li><a href="index.html" id="nav-home">Home</a></li>
+<li><a href="cart.html" id="nav-cart">Cart (<span id="cart-count">0</span>)</a></li>
 </ul>
- 
-<button id="lang-toggle">EN</button>
- 
+<button id="lang-toggle" type="button">मराठी</button>
 </nav>
 </header>
- 
-<!-- HERO SECTION -->
 <section class="hero">
- 
-<h1 id="hero-title">
-Traditional Handmade Recipe – Rich Authentic Taste
-</h1>
- 
-<p id="hero-desc">
-Started by four housewives, our spices are homemade using traditional methods with no preservatives.
-</p>
- 
+<h1 id="hero-title">Traditional Handmade Recipe, Rich Authentic Taste</h1>
+<p id="hero-desc">Started by four housewives, our spices are handmade with traditional methods and no preservatives.</p>
 <div class="hero-buttons">
-<a href="#products" class="btn-primary">🛒 Shop Now</a>
-<a href="https://wa.me/917066395554" class="btn-secondary">💬 Order on WhatsApp</a>
+<a href="#products" id="shop-now-btn" class="btn-primary">Shop Now</a>
+<a href="https://wa.me/917066395554" id="order-wp-btn" class="btn-secondary" target="_blank" rel="noopener">Order on WhatsApp</a>
 </div>
- 
+<p id="cart-feedback" class="cart-feedback" hidden aria-live="polite"></p>
 </section>
- 
-<!-- TRUST STRIP -->
 <section class="trust-strip">
-<div>🌿 100% Natural</div>
-<div>👩‍🍳 Handmade by Women</div>
-<div>🔥 Authentic Maharashtrian Taste</div>
-<div>🚚 Direct from Village</div>
+<div id="trust-1">100% Natural</div>
+<div id="trust-2">Handmade by Women</div>
+<div id="trust-3">Authentic Maharashtrian Taste</div>
+<div id="trust-4">Direct from Village</div>
 </section>
- 
-<!-- BESTSELLER -->
 <section class="bestseller">
- 
-<h2>⭐ Customer Favorite</h2>
- 
+<h2 id="bestseller-title">Customer Favorite</h2>
 <div class="best-card">
- 
-<img src="images/ghati_masala.png" alt="Ghati Masala">
- 
+<img src="images/hero_img.png" alt="Ghati Masala">
 <div>
-<h3>Ghati Masala</h3>
-<p>Our most loved spice blend with rich aroma and authentic village taste.</p>
-<a href="#products" class="btn-primary">Buy Now</a>
+<h3 id="bestseller-name">Ghati Masala</h3>
+<p id="bestseller-desc">Our most loved spice blend with rich aroma and authentic village taste.</p>
+<a href="#products" id="bestseller-btn" class="btn-primary">Buy Now</a>
 </div>
- 
 </div>
- 
 </section>
- 
-<!-- PRODUCTS -->
 <section class="products" id="products">
- 
-<h2>Our Products</h2>
- 
+<h2 id="products-title">Our Products</h2>
 <div id="product-container"></div>
- 
 </section>
- 
-<!-- REVIEWS -->
-<section class="reviews">
- 
-<h2>❤️ What Customers Say</h2>
- 
-<div class="review-grid">
- 
-<div class="review">
-★★★★★
-<p>"खूप छान चव आहे! अगदी घरगुती मसाल्यासारखा."</p>
-<span>— Swikruti Jadhav</span>
-</div>
- 
-<div class="review">
-★★★★★
-<p>"Authentic taste like village homemade spices."</p>
-<span>— Rohit Deshmukh</span>
-</div>
- 
-<div class="review">
-★★★★★
-<p>"Perfect for daily cooking. No irritation or artificial smell."</p>
-<span>— Kavita Jadhav</span>
-</div>
- 
-</div>
- 
-</section>
- 
-<!-- WHY CHOOSE -->
 <section class="why-choose">
- 
-<h2 id="why-title">🌶️ Why Choose Kalaprasad Masale?</h2>
- 
+<h2 id="why-title">Why Choose Kalaprasad Masale?</h2>
 <div class="why-grid">
- 
 <div class="why-card">
-<div class="icon">👩‍🍳</div>
+<div class="icon">1</div>
 <h3 id="why1-title">Handmade by Women</h3>
-<p id="why1-desc">Prepared by rural women self-help group with care and dedication.</p>
+<p id="why1-desc">Prepared by a rural women self-help group with care and dedication.</p>
 </div>
- 
 <div class="why-card">
-<div class="icon">🌿</div>
+<div class="icon">2</div>
 <h3 id="why2-title">No Preservatives</h3>
 <p id="why2-desc">100% natural spices with no chemicals or artificial colors.</p>
 </div>
- 
 <div class="why-card">
-<div class="icon">🔥</div>
+<div class="icon">3</div>
 <h3 id="why3-title">Traditional Taste</h3>
-<p id="why3-desc">Authentic Maharashtrian recipes passed down generations.</p>
+<p id="why3-desc">Authentic Maharashtrian recipes passed down through generations.</p>
 </div>
- 
 <div class="why-card">
-<div class="icon">🏡</div>
+<div class="icon">4</div>
 <h3 id="why4-title">Homemade Quality</h3>
 <p id="why4-desc">Clean, hygienic preparation just like your own kitchen.</p>
 </div>
- 
 </div>
- 
 </section>
- 
-<!-- ABOUT / STORY -->
 <section class="about">
- 
-<h2 id="about-title">🌸 Our Story</h2>
- 
-<p id="about-p1">
-Kalaprasad Ghati Masala is lovingly prepared by the women of
-Kalaprasad Mahila Self-Help Group in Sangli district.
-Each pack carries the warmth of home, traditional knowledge,
-and the determination of rural women working together
-to support their families.
-</p>
- 
-<p id="about-p2">
-From selecting quality ingredients to careful grinding
-and packing, every step is done by hand with attention,
-cleanliness and pride. This is not factory-made spice —
-it is homemade taste passed down through generations.
-</p>
- 
-<p id="about-p3">
-When you choose our masala, you are not just buying a product.
-You are supporting women's livelihoods, preserving
-Maharashtrian food traditions, and bringing authentic
-regional flavour into your kitchen.
-</p>
- 
+<h2 id="about-title">Our Story</h2>
+<p id="about-p1">Kalaprasad Ghati Masala is lovingly prepared by the women of Kalaprasad Mahila Self-Help Group in Sangli district. Each pack carries the warmth of home, traditional knowledge, and the determination of rural women working together to support their families.</p>
+<p id="about-p2">From selecting quality ingredients to careful grinding and packing, every step is done by hand with attention, cleanliness, and pride. This is not factory-made spice; it is homemade taste passed down through generations.</p>
+<p id="about-p3">When you choose our masala, you are not just buying a product. You are supporting women's livelihoods, preserving Maharashtrian food traditions, and bringing authentic regional flavour into your kitchen.</p>
 </section>
- 
-<!-- IMAGE ZOOM MODAL -->
-<div id="image-modal">
-<img id="modal-img">
+<div id="image-modal" hidden>
+<img id="modal-img" alt="Product preview">
 </div>
- 
-<!-- FLOATING WHATSAPP BUTTON -->
-<a href="https://wa.me/917066395554" target="_blank" id="whatsapp-float">
-💬
-</a>
- 
-<!-- ORDER BUTTON -->
-<a href="cart.html">
-<button id="order-btn">🛒 View Cart / Order</button>
-</a>
- 
-<!-- CHECKOUT POPUP -->
-<div id="checkout-popup">
-<div class="popup-box">
-<h2>Order Confirmed ✅</h2>
-<p>Your masala order will be placed on WhatsApp.</p>
-<button id="close-popup">OK</button>
-</div>
-</div>
- 
-<!-- FOOTER -->
+<a href="https://wa.me/917066395554" target="_blank" rel="noopener" id="whatsapp-float" aria-label="Order on WhatsApp">WA</a>
+<a href="cart.html" id="cart-cta-link" class="order-link">View Cart / <span id="cart-cta-label">Order on WhatsApp</span></a>
 <footer class="site-footer">
- 
-<h3>🌶️ KALAPRASAD GHATI MASALA</h3>
-<p>Handmade by Kalaprasad Mahila SHG</p>
-<p>Sangli District, Maharashtra</p>
-<p>
-📞 WhatsApp:
-<a href="https://wa.me/917066395554" target="_blank">+91 7066395554</a>
-</p>
-<p class="footer-tagline">Authentic taste • Handmade with care • Supporting rural women</p>
-<p class="copyright">© 2026 Kalaprasad Ghati Masala</p>
- 
+<h3 id="footer-brand">KALAPRASAD GHATI MASALA</h3>
+<p id="footer-handmade">Handmade by Kalaprasad Mahila SHG</p>
+<p id="footer-location">Sangli District, Maharashtra</p>
+<p id="footer-whatsapp">WhatsApp: <a href="https://wa.me/917066395554" target="_blank" rel="noopener">+91 7066395554</a></p>
+<p id="footer-tagline">Authentic taste | Handmade with care | Supporting rural women</p>
+<p id="footer-copyright">© 2026 Kalaprasad Ghati Masala</p>
 </footer>
- 
+<script src="data.js"></script>
+<script src="utils.js"></script>
 <script src="main.js"></script>
- 
 </body>
 </html>

@@ -570,3 +570,69 @@ body {
   font-size: 12px;
   color: #666;
 }
+
+/* Section Styling */
+.customer-fav-section {
+  padding: 40px 20px;              /* reduced vertical space */
+  background: #f9f5f0;             /* soft background to avoid emptiness */
+  text-align: center;
+}
+
+/* Container Layout */
+.customer-fav-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;                       /* balanced spacing */
+  flex-wrap: wrap;                 /* responsive */
+  margin-top: 20px;
+}
+
+/* Image Styling */
+.customer-fav-container img {
+  width: 220px;                   /* slightly bigger */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Text Content */
+.customer-fav-content {
+  max-width: 400px;
+  text-align: left;
+}
+
+/* Title */
+.customer-fav-content h3 {
+  color: #b30000;
+  margin-bottom: 10px;
+}
+
+/* Description */
+.customer-fav-content p {
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
+/* Extra Info (NEW - fills empty space) */
+.customer-fav-extra {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Button */
+.customer-fav-content button {
+  background: #b30000;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.customer-fav-content button:hover {
+  background: #800000;
+}
+

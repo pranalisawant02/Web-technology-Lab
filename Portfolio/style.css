@@ -97,6 +97,18 @@ input, textarea {
   border-radius: 5px;
 }
 
+.project-card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
 footer {
   text-align: center;
   padding: 20px;

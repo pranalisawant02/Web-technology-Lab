@@ -1,6 +1,3 @@
-Here’s a **clean, professional README** you can directly use for your project 👇
-
----
 
 # 📌 Fake Exam Proctor
 

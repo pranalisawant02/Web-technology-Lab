@@ -1,8 +1,4 @@
-Good approach—lock the basic version first, then iterate.
 
-Here’s a **clean, viva-ready README** for your portfolio 👇
-
----
 
 # 📌 **Personal Portfolio Website**
 

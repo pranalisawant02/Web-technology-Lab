@@ -25,6 +25,7 @@ function loadProjects() {
 }
 
 // 4. Render projects
+
 loadProjects().then((data) => {
   data.forEach((project) => {
     const card = document.createElement("div");

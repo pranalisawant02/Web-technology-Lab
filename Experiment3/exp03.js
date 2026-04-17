@@ -1,228 +1,237 @@
+// function :- A block of code used to perform specific task
+//fun 01
+ function sum(num1, num2) { 
+    console.log(num1 + num2); 
+}
+sum(5, 10); // Outputs: 15
+console.log(sum);
 
-// activity 01 : what is arrow fun, diff between simple & arrow fun
+//fun02
+function sum2(n1,n2){
+    let res = n1 +n2;
+    return res;
+    console.log(res) // code after return is never executed
+}
+console.log(sum2(3,4));
 
-/* => An arrow function is a shorter and modern way to write a function in JavaScript, introduced in ES6 (2015).
-It uses the => (arrow) syntax and makes the code more clean, readable, and concise.
+//fun 03
+function loginUser(userName){
+    return `${userName} just LoggedIn!!!`
 
-| Feature               | Simple Function            | Arrow Function                    |
-| --------------------- | -------------------------- | --------------------------------- |
-| **Syntax**            | Uses `function` keyword    | Uses `=>` arrow                   |
-| **Code Length**       | Longer                     | Shorter & concise                 |
-| **`this` keyword**    | Has its own `this`         | Inherits `this` from parent scope |
-| **Hoisting**          | Hoisted                    | Not hoisted                       |
-| **Arguments object**  | Available                  | Not available                     |
-| **Constructor usage** | Can be used as constructor | Cannot be used as constructor     |
+}
+console.log(loginUser('Pranali'));// when string is empty or no value is passed then it gives Undefined
 
-*/
+//fun 04
+function fun(...m1){ //spread operator : it gives multiple values under one arrr for single var
+    return m1;
+}
+console.log(fun(200,300,400));
 
-// activity 02 : why we use this keyword, why we don't use in arrow fun 
-/* 
-    The this keyword in JavaScript is used to refer to the current object that is calling a function.
-    It helps in accessing object properties and methods inside functions.
-Purpose of this :-
-    Refers to the owner object of the function
-    Allows reuse of functions for different objects
-    Helps distinguish between local variables and object properties
-
-
-Example
-const student = {
-    name: "Pranali",
-    marks: 85,
-    display() {
-        console.log(this.name + " scored " + this.marks);
-    }
+//fun 05
+let Prod = {
+   title : "Pen",
+   price : 20
 };
 
-Output:
-
-Pranali scored 85
- Here, this refers to the student object.
-
- Arrow functions do not have their own this.
-Instead, they inherit this from their surrounding (lexical) scope.
-
-Reason :-
-       Arrow functions are designed to be lightweight
-       They avoid confusion caused by dynamic this binding
-       Useful in callbacks where we want to preserve parent this
-*/
-
-//activity 03 : write a code for arrow fun with 2 example
-//01
-let arr1 = ["Pune","Mumbai","Delhi"];
-
-arr1.forEach((val) => {
-    console.log(val);
-});
-//02
-let CalcSquare =  (num) => {
-    return num * num;
+function handleObj(obj1){
+    console.log(`Product name : ${obj1.title}`);
+     console.log(`Product Price : ${obj1.price}`);
 }
-console.log(CalcSquare(9));
+console.log(handleObj(Prod));
 
-//activity 04 : write a code switch case in js
-//Day of the week
+//fun 06
+let arr1 = ["abc","xyz"];
+
+function handleArr(obj2){
+    console.log(obj2[0]);
+}
+console.log(handleArr(arr1));
+
+//fun 07 
+//arrow function
+const sum3 = (n1,n2) => {
+    return n1+n2;
+}
+console.log(sum3(4,5));
+
+function tea(){
+ uname = "Pranali";
+    console.log(this.uname);
+}
+tea();
+
+const arrFun = () =>
+{
+    uname = "Pranali";
+    console.log(this.uname);
+}
+tea();
+
+/* 
+activity 01 : why we use this keyword, why we don't use in arrow fun 
+activity 02 : what is arrow fun diff between simple & arrow fun
+activity 03 : write a code for arrow fun with 2 example
+activity 04 : write a code switch case in js
+activity 05 : how to use truthy-falsy value in js
+activity 06 : how to use ternary operator in js
+activity 07 : write a code for how to use loops in array(5 types with example)
+activity 08 : diff betwn forin and forof loop in js
+activity 09 : how to use map and filter fun in js
+
+*/
+// ================== ACTIVITY 01 ==================
+console.log("ACTIVITY 01: this keyword");
+
+// 'this' refers to current object in normal function
+// Arrow function does NOT have its own 'this'
+
+const user = {
+    uname: "Sanika",
+    greet: function(){
+        console.log("Normal function:", this.uname); // ✔ works
+    }
+};
+user.greet();
+
+const userArrow = {
+    uname: "Pranali",
+    greet: () => {
+        console.log("Arrow function:", this.uname); // ❌ undefined
+    }
+};
+userArrow.greet();
+
+
+// ================== ACTIVITY 02 ==================
+console.log("ACTIVITY 02: Normal vs Arrow Function");
+
+// Normal function → has its own this, can be used as method
+// Arrow function → no this, short syntax
+
+function normalFun(a,b){
+    return a+b;
+}
+
+const arrowFun = (a,b) => a+b;
+
+console.log("Normal:", normalFun(2,3));
+console.log("Arrow:", arrowFun(2,3));
+
+
+// ================== ACTIVITY 03 ==================
+console.log("ACTIVITY 03: Arrow Function Examples");
+
+// Arrow functions are short and clean
+
+const add = (a,b) => a+b;
+console.log("Addition:", add(10,20));
+
+const square = x => x*x;
+console.log("Square:", square(5));
+
+
+// ================== ACTIVITY 04 ==================
+console.log("ACTIVITY 04: Switch Case");
+
+// Switch is used when we have multiple conditions
 
 let day = 3;
 
 switch(day){
-    case 1:
-        console.log("Monday");
-        break;
-
-    case 2:
-        console.log("Tuesday");
-        break;
-
-    case 3:
-        console.log("Wednesday");
-        break;
-    
-    case 4:
-          console.log("Thursday");
-    break;
-
-  case 5:
-    console.log("Friday");
-    break;
-
-  default:
-    console.log("Invalid day");
+    case 1: console.log("Mon"); break;
+    case 2: console.log("Tue"); break;
+    case 3: console.log("Wed"); break;
+    case 4: console.log("Thu"); break;
+    default: console.log("Invalid");
 }
 
-//activity 05 : how to use truthy-falsy value in js
-/* 
 
-false
-0
--0
-0n        // BigInt zero
-""        // empty string
-null
-undefined
-NaN
+// ================== ACTIVITY 05 ==================
+console.log("ACTIVITY 05: Truthy & Falsy");
 
-*/
+// Falsy values: false, 0, "", null, undefined, NaN
+// Truthy: all other values
 
-/* 
-Common Truthy values
+let name = "";
+let age = 0;
 
-true
-1
--1
-"0"
-"false"
-[]
-{}
-function(){}
-
-*/
-//Example
-//01 Form validation
-let email = "";
-
-if(!email) {
-    console.log("Email is required!");
+if(name){
+    console.log("Name exists(truthy)");
+}else{
+    console.log("Name is empty"); // falsy
 }
 
-//02 Boolean conversion
-console.log(Boolean(0));        // false
-console.log(Boolean("Hello")); // true
-console.log(Boolean(null));    // false
-console.log(Boolean([]));      // true
+if(!age){
+    console.log("Age is zero(falsy)"); // falsy
+}
 
-//activity 06 : how to use ternary operator in js
-//1.Even odd checker
-let num = 7;
 
-let result = (num % 2 === 0) ? "Even" : "Odd";
+// ================== ACTIVITY 06 ==================
+console.log("ACTIVITY 06: Ternary Operator");
 
+// Short form of if-else
+// condition ? true : false
+
+let marks = 35;
+let result = (marks >= 35) ? "Pass" : "Fail";
 console.log(result);
 
-//2.eligibility to vote
-let age = 20;
 
-let message = (age >= 18) ? "Eligible to vote" : "Not eligible to vote";
+// ================== ACTIVITY 07 ==================
+console.log("ACTIVITY 07: Loops in Array");
 
-console.log(message);
+// Used to iterate array elements
 
-//activity 07 : write a code for how to use loops in array(5 types with example)
-//1.for loop
-let arr = [10, 20, 30, 40, 50];
+let arr2 = [10,20,30];
 
-for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i]);
+// for loop → index based
+for(let i=0;i<arr2.length;i++){
+    console.log(arr2[i]);
 }
-//2.While loop
-let arr2 = [1, 2, 3, 4];
-let i = 0;
 
-while (i < arr.length) {
-    console.log(arr[i]);
+// while loop
+let i=0;
+while(i<arr2.length){
+    console.log(arr2[i]);
     i++;
 }
-//3. do-while loop
-let arr3 = ["A", "B", "C"];
-let j = 0;
 
-do {
-    console.log(arr[i]);
-    i++;
-} while (i < arr.length);
+// do-while → runs at least once
+let j=0;
+do{
+    console.log(arr2[j]);
+    j++;
+}while(j<arr2.length);
 
-//4.for _of
-let arr4 = ["Apple", "Banana", "Mango"];
+// ================== ACTIVITY 08 ==================
+console.log("ACTIVITY 08: for-in vs for-of");
 
-for (let item of arr) {
-    console.log(item);
+// for-in → index
+// for-of → value
+
+let arr3 = [100,200,300];
+
+for(let i in arr3){
+    console.log("for-in index:", i);
 }
 
-//5.for each
-let arr5 = [5, 10, 15];
-
-arr.forEach(function(value) {
-    console.log(value);
-});
-
-//activity 08 : diff betwn forin and forof loop in js
-/*for...in loop
-
-| Feature                | `for...in`       | `for...of`      |
-| ---------------------- | ---------------- | --------------- |
-| Iterates over          | Keys / Indexes   | Values          |
-| Best used for          | Objects          | Arrays, Strings |
-| Output                 | Index (key)      | Element value   |
-| Works on               | Objects, Arrays  | Iterables       |
-| Order guarantee        |  Not guaranteed  | Guaranteed      |
-| Recommended for arrays |  No              | Yes             |
-
- */
-// for-in
-let arr6 = ["JS", "Python", "Java"];
-
-for (let index in arr) {
-    console.log(index, arr[index]);
-}
-//for-of
-let arr7 = ["JS", "Python", "Java"];
-
-for (let value of arr) {
-    console.log(value);
+for(let val of arr3){
+    console.log("for-of value:", val);
 }
 
-//activity 09 : how to use map and filter fun in js
-//Example 1: Multiply each number by 2
-let numbers = [1, 2, 3, 4];
 
-let res = numbers.map(num => num * 2);
+// ================== ACTIVITY 09 ==================
+console.log("ACTIVITY 09: map & filter");
 
-console.log(result);   // [2, 4, 6, 8]
+// map → transform values (returns new array)
+// filter → select values (returns new array)
 
-//Example 2: Convert names to uppercase
-let names = ["ram", "shyam", "sita"];
+let nums = [1,2,3,4,5];
 
-let upperNames = names.map(name => name.toUpperCase());
+// map example
+let doubled = nums.map(n => n*2);
+console.log("Map:", doubled);
 
-console.log(upperNames); // ["RAM", "SHYAM", "SITA"]
-
+// filter example
+let even = nums.filter(n => n%2===0);
+console.log("Filter:", even);

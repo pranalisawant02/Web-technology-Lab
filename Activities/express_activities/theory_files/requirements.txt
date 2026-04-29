@@ -1,0 +1,25 @@
+----------------------------------------
+Express.js Setup Commands
+----------------------------------------
+
+Check Node.js:
+node -v
+npm -v
+
+Initialize Project:
+npm init -y
+
+Install Packages:
+npm install express
+npm install ejs
+
+Run Server:
+node Code_Files/activity1.js
+
+Open Browser:
+http://localhost:3000
+
+----------------------------------------
+Dependencies:
+express
+ejs

@@ -1,0 +1,36 @@
+Title: DOM Activity (jQuery)
+
+1. DOM (Document Object Model):
+DOM represents the structure of a webpage.
+It allows JavaScript to access and manipulate HTML elements.
+
+2. jQuery:
+jQuery is a JavaScript library used to simplify DOM manipulation.
+
+3. $() Function:
+$() is used to select HTML elements.
+
+Example:
+$("p") → selects all paragraph elements
+$("img") → selects all images
+
+4. $(document).ready():
+Ensures that the code runs only after the webpage is fully loaded.
+
+5. Event Handling:
+Events are actions like click, hover, etc.
+
+Example:
+$("img").click(function() {
+    // code
+});
+
+6. $(this):
+Refers to the currently selected element.
+
+7. hide():
+Used to hide elements.
+
+8. Activity Logic:
+- When user clicks an image → it disappears
+- When page refreshes → images reappear (default behavior)

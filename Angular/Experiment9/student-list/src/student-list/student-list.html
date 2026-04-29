@@ -1,0 +1,9 @@
+<h2>Student List</h2>
+
+@for (student of students; track student.id) {
+  <div class="student-card">
+    <p><strong>Name:</strong> {{ student.name }}</p>
+    <p><strong>Age:</strong> {{ student.age }}</p>
+    <p><strong>Course:</strong> {{ student.course }}</p>
+  </div>
+}

@@ -1,0 +1,45 @@
+<h2>Task 1: Data Binding</h2>
+
+<p><b>One Way Binding:</b> Data flows from TS → HTML using Interpolation</p>
+<p><b>Two Way Binding:</b> Data flows both ways using ngModel</p>
+
+<hr>
+
+<p><b>Interpolation (double curly braces):</b></p>
+<p>Student Name: {{ studentName }}</p>
+<p>Student Age: {{ studentAge }}</p>
+
+<hr>
+
+<p><b>Property Binding ([ ]):</b></p>
+<img [src]="imageUrl" width="150" height="150">
+
+<hr>
+
+<p><b>Two Way Binding [(ngModel)]:</b></p>
+<input [(ngModel)]="imageUrl" placeholder="Enter Image URL">
+<p>Image URL: {{ imageUrl }}</p>
+
+<hr>
+
+<p><b>Add Student (Two Way + Event Binding):</b></p>
+<input [(ngModel)]="newStudent" placeholder="Enter student name">
+<button (click)="addStudent()">Add</button>
+
+<hr>
+
+<p><b>Event Binding (click):</b></p>
+<button (click)="toggleList()">Toggle Student List</button>
+
+<hr>
+
+@if (showList) {
+  <h3>Student List:</h3>
+  <ul>
+    @for (s of students; track s) {
+      <li>{{ s }}</li>
+    }
+  </ul>
+} @else {
+  <p>List Hidden</p>
+}

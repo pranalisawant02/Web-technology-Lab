@@ -62,15 +62,35 @@ button.addEventListener("click", () => {
 // 7. Form Handling + Simple Validation
 const form = document.getElementById("contactForm");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const name = form.querySelector("input[type='text']").value;
-  const email = form.querySelector("input[type='email']").value;
+    const name = form.querySelector("input[type='text']").value;
+    const email = form.querySelector("input[type='email']").value;
+    const message = form.querySelector("textarea").value;
 
-  if (name === "" || email === "") {
-    alert("Please fill all fields!");
-  } else {
-    alert("Message sent successfully!");
-  }
-});
+    if (name === "" || email === "") {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ name, email, message })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+      form.reset();
+
+    } catch (error) {
+      console.error(error);
+      alert("Error sending message");
+    }
+  });
+}

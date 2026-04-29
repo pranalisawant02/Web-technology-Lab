@@ -1,0 +1,63 @@
+Title: Async Await Activity
+
+1. Synchronous / Blocking Code:
+Synchronous code executes line by line.
+Each task waits for the previous task to complete.
+
+Example:
+console.log("Start");
+console.log("End");
+
+Real-life Example:
+Standing in a queue at a ticket counter.
+One person is served only after the previous person is done.
+
+2. Asynchronous / Non-blocking Code:
+Asynchronous code allows other tasks to continue while one task is waiting.
+
+Example:
+setTimeout(() => {
+    console.log("After 3 seconds");
+}, 3000);
+
+Real-life Example:
+Ordering food online.
+After placing order, we can do other work while food is being prepared.
+
+3. Blocking Example:
+A loop or long calculation can block the next code from running.
+
+4. Non-blocking Example:
+setTimeout() is non-blocking because it runs after delay without stopping other code.
+
+5. Promise:
+A Promise represents a value that may be available now, later, or never.
+
+Promise States:
+- Pending
+- Resolved/Fulfilled
+- Rejected
+
+6. async:
+async keyword is used before a function.
+It makes the function return a Promise.
+
+7. await:
+await waits for a Promise to complete.
+It can be used only inside async function.
+
+8. API:
+API stands for Application Programming Interface.
+It allows communication between two applications.
+
+9. Fetch Method:
+fetch() is used to request data from an API.
+
+Example:
+fetch("https://api.example.com/data")
+
+10. Guess Number Game Logic:
+- Generate random number
+- Take user guess
+- Compare guess with random number
+- Display correct or wrong message

@@ -1,0 +1,47 @@
+Title: Fetch Activity
+
+1. Fetch API:
+Fetch API is used to get data from a server.
+
+Syntax:
+fetch(url)
+.then(response => response.json())
+.then(data => console.log(data))
+
+2. async/await with fetch:
+async and await make asynchronous code easier to read.
+
+Example:
+let response = await fetch(url);
+let data = await response.json();
+
+3. JSON:
+JSON (JavaScript Object Notation) is a format used to store and transfer data.
+
+4. DOM Manipulation:
+We create elements using JavaScript and add them to HTML.
+
+Example:
+let li = document.createElement("li");
+
+5. slice():
+Used to get selected elements from array.
+
+Example:
+data.slice(0, 5) → first 5 elements
+
+6. Promise:
+Promise handles asynchronous operations.
+
+7. Fake Promise:
+We manually create promise using setTimeout.
+
+8. resolve():
+Called when operation is successful.
+
+9. reject():
+Called when operation fails.
+
+10. API used:
+https://jsonplaceholder.typicode.com/
+It is a free fake API for testing.

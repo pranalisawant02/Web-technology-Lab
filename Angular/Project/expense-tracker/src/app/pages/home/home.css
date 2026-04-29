@@ -1,0 +1,112 @@
+.container {
+  max-width: 850px;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+}
+
+.summary-card {
+  background: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.summary-card p {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.expense-form {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.expense-form input,
+.expense-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.expense-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.expense-form button:hover {
+  background: #0056b3;
+}
+
+.expense-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f7f7;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.expense-card h3 {
+  margin: 0;
+}
+
+.expense-card p {
+  margin: 5px 0 0;
+  color: #666;
+}
+
+.right {
+  text-align: right;
+}
+
+.right button {
+  margin-top: 8px;
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  margin-top: 30px;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .expense-form {
+    grid-template-columns: 1fr;
+  }
+
+  .expense-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right {
+    text-align: left;
+    margin-top: 10px;
+  }
+}

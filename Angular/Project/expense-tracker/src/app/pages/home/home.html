@@ -1,0 +1,75 @@
+<div class="container">
+
+  <h1>Expense Tracker</h1>
+  <p class="subtitle">Track your daily spending easily</p>
+
+  <!-- Summary card -->
+  <div class="summary-card">
+    <h2>Total Expense</h2>
+    <p>₹ {{ totalAmount }}</p>
+  </div>
+
+  <!-- Expense Form -->
+  <form class="expense-form" (ngSubmit)="addExpense()">
+
+    <!-- Two-way binding using ngModel -->
+    <input
+      type="text"
+      name="title"
+      placeholder="Expense title"
+      [(ngModel)]="newExpense.title"
+    />
+
+    <input
+      type="number"
+      name="amount"
+      placeholder="Amount"
+      [(ngModel)]="newExpense.amount"
+    />
+
+    <select
+      name="category"
+      [(ngModel)]="newExpense.category"
+    >
+      <option value="">Select Category</option>
+      <option value="Food">Food</option>
+      <option value="Travel">Travel</option>
+      <option value="Shopping">Shopping</option>
+      <option value="Education">Education</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <input
+      type="date"
+      name="date"
+      [(ngModel)]="newExpense.date"
+    />
+
+    <button type="submit">Add Expense</button>
+  </form>
+
+  <!-- Show message if no expenses -->
+  <p class="empty" *ngIf="expenses.length === 0">
+    No expenses added yet.
+  </p>
+
+  <!-- Expense List -->
+  <div class="expense-list" *ngIf="expenses.length > 0">
+
+    <div class="expense-card" *ngFor="let expense of expenses">
+
+      <div>
+        <h3>{{ expense.title }}</h3>
+        <p>{{ expense.category }} | {{ expense.date }}</p>
+      </div>
+
+      <div class="right">
+        <strong>₹ {{ expense.amount }}</strong>
+        <button (click)="deleteExpense(expense.id)">Delete</button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

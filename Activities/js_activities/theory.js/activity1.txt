@@ -1,0 +1,35 @@
+Title: JavaScript Basics
+
+1. Conversion Operators:
+Used to convert one data type to another.
+Example:
+Number("10") converts string to number.
+
+2. Arithmetic Operators:
+Used to perform mathematical operations.
+Operators: +, -, *, /, %
+
+3. String Addition:
+Strings are concatenated using + operator.
+Example: "Hello" + "World" → HelloWorld
+
+4. Automatic Type Conversion:
+JavaScript automatically converts strings to numbers during arithmetic operations.
+Example: "10" - 2 → 8
+
+5. Increment Operator:
+Used to increase value by 1.
+Example: x++
+
+6. Comparison Operators:
+Used to compare values.
+== checks value only
+=== checks value and type
+
+7. Null vs Undefined:
+null → intentional empty value
+undefined → variable declared but not assigned
+
+8. Math.random():
+Generates random number between 0 and 1.
+Used in games, simulations, random selection.

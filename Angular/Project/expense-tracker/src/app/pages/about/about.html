@@ -1,0 +1,86 @@
+<div class="about-container">
+
+  <h1>About Expense Tracker</h1>
+
+  <p>
+    Expense Tracker is a simple Angular application used to record and monitor daily expenses.
+    The user can add expenses, delete expenses, view total spending, and see category-wise
+    expense distribution using a pie chart.
+  </p>
+
+  <h2>Angular Concepts Used</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Concept</th>
+        <th>Short Definition</th>
+        <th>Where Used</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Component</td>
+        <td>A reusable UI block in Angular.</td>
+        <td>Home component and About component.</td>
+      </tr>
+
+      <tr>
+        <td>Routing</td>
+        <td>Used to navigate between different pages.</td>
+        <td>Home page and About page navigation.</td>
+      </tr>
+
+      <tr>
+        <td>Service</td>
+        <td>Used to write reusable business logic.</td>
+        <td>ExpenseService handles add, delete, get, and total calculation.</td>
+      </tr>
+
+      <tr>
+        <td>Interface</td>
+        <td>Defines the structure of data.</td>
+        <td>Expense interface defines id, title, amount, category, and date.</td>
+      </tr>
+
+      <tr>
+        <td>Two-way Binding</td>
+        <td>Connects form input and TypeScript variable together.</td>
+        <td>Used with [(ngModel)] in the expense form.</td>
+      </tr>
+
+      <tr>
+        <td>Event Binding</td>
+        <td>Executes a function when user performs an action.</td>
+        <td>Used in Add Expense form submit and Delete button click.</td>
+      </tr>
+
+      <tr>
+        <td>*ngFor</td>
+        <td>Repeats HTML for every item in an array.</td>
+        <td>Used to display all expenses.</td>
+      </tr>
+
+      <tr>
+        <td>*ngIf</td>
+        <td>Shows or hides HTML based on condition.</td>
+        <td>Used to show empty message or chart/list.</td>
+      </tr>
+
+      <tr>
+        <td>LocalStorage</td>
+        <td>Stores data inside browser memory.</td>
+        <td>Used to save expenses after page refresh.</td>
+      </tr>
+
+      <tr>
+        <td>Lifecycle Hook</td>
+        <td>Special method that runs at a specific component stage.</td>
+        <td>ngAfterViewInit is used to create the chart after HTML loads.</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>

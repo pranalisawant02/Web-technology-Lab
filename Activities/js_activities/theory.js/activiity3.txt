@@ -1,0 +1,62 @@
+Title: Array Activity
+
+1. Array:
+An array is a collection of multiple values stored in a single variable.
+
+Example:
+let numbers = [10, 20, 30, 40];
+
+2. split():
+split() is a string method used to convert a string into an array.
+
+Example:
+"I am learning JS".split(" ")
+Output: ["I", "am", "learning", "JS"]
+
+3. splice():
+splice() is used to add, remove, or replace elements in an array.
+
+Important:
+splice() modifies the original array.
+
+Syntax:
+array.splice(startIndex, deleteCount, newElement)
+
+Example:
+fruits.splice(1, 1, "Grapes");
+
+4. slice():
+slice() is used to extract selected elements from an array.
+
+Important:
+slice() does not modify the original array.
+
+Syntax:
+array.slice(startIndex, endIndex)
+
+Example:
+numbers.slice(1, 4);
+
+5. toSpliced():
+toSpliced() works like splice(), but it does not change the original array.
+It returns a new updated array.
+
+Difference Between splice() and toSpliced():
+
+splice():
+- Changes original array
+- Mutable method
+
+toSpliced():
+- Does not change original array
+- Immutable method
+
+6. Difference Between slice() and splice():
+
+slice():
+- Extracts elements
+- Does not modify original array
+
+splice():
+- Adds/removes/replaces elements
+- Modifies original array

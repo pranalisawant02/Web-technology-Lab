@@ -1,0 +1,37 @@
+Title: Promises Activity
+
+1. What is a Promise?
+A Promise is an object that represents the result of an asynchronous operation.
+
+2. Promise States:
+- Pending: Initial state
+- Fulfilled (Resolved): Operation completed successfully
+- Rejected: Operation failed
+
+3. Why Promises are better than Callbacks:
+- Avoid callback hell (nested callbacks)
+- Improve readability
+- Better error handling using .catch()
+- Supports chaining
+
+4. Callback Hell:
+When multiple callbacks are nested inside each other, making code complex.
+
+5. .then():
+Used to handle successful result of Promise.
+
+6. .catch():
+Used to handle errors in Promise.
+
+7. Promise Chaining:
+Multiple .then() can be used one after another.
+
+8. async/await:
+- async makes function return a Promise
+- await waits for Promise to resolve
+
+9. Real-life Example:
+Online shopping:
+- Order placed → Pending
+- Order delivered → Resolved
+- Order cancelled → Rejected

@@ -1,0 +1,66 @@
+Title: Function Activity
+
+1. Function:
+A function is a reusable block of code that performs a specific task.
+
+Syntax:
+function functionName(parameters) {
+    // code
+}
+
+2. Importance of Functions:
+- Avoids code repetition
+- Makes code reusable
+- Makes program easy to understand
+- Divides large program into smaller parts
+
+3. Function Declaration:
+A normal way to define a function using function keyword.
+
+Example:
+function add(a, b) {
+    return a + b;
+}
+
+4. Parameters:
+Parameters are values passed to a function.
+
+5. Return Statement:
+return is used to send output back from a function.
+
+6. Function Expression:
+A function stored inside a variable is called function expression.
+
+Example:
+const multiply = function(a, b) {
+    return a * b;
+};
+
+7. String:
+String is a sequence of characters written inside quotes.
+
+Example:
+let name = "JavaScript";
+
+8. String Methods:
+
+length:
+Returns total number of characters.
+
+toUpperCase():
+Converts string into uppercase.
+
+toLowerCase():
+Converts string into lowercase.
+
+charAt():
+Returns character at specific index.
+
+slice():
+Extracts part of a string.
+
+includes():
+Checks whether a string contains a specific word.
+
+replace():
+Replaces one word with another word.
